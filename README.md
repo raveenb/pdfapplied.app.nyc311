@@ -14,7 +14,7 @@ Pre-Requisites
 - python - you should know this before you start :)
 - python virtualenv - http://www.virtualenv.org/en/latest/index.html
 - python pip - http://www.pip-installer.org/en/latest/index.html
-- linux like development evironment - macosx/linux/cygwin
+- development evironment - any, we used macosx/sublimetext2/ipython
 
 Steps to Start
 - virtualenv venv --distribute

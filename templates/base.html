@@ -1,0 +1,26 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<form 
+			action = "{% url community %}"
+			method = "post">
+			<select 
+				name = "Comunity Names">
+				{% for name in community_board_list %}
+					<option 
+						value = "{{name}}">{{name}}
+					</option> 
+				{% endfor %}
+			</select>
+			<input 
+				type = "submit"
+				value = "submit" 
+				name = "GetDetails">
+			<input 
+				type = "submit"
+				value = "cancel" 
+				name = "GetDetails">				
+		</form>
+	</body>
+</html>

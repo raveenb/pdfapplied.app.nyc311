@@ -44,16 +44,12 @@ def populate():
 	
 	for row in reader:
 		key = 'Community Board'
-		print 'P1 - ' + row[key]
 		if row[key] not in community_data:
 			community_data[row[key]] = list()
 		community_data[row[key]].append(row)
-		# community_entry = CommunityName(name = row[key])
-		# community_entry.save()	
 	print 'community count = ' + str(len(community_data))
 
 	overall_summary = dict()
-
 	for community_name in community_data.keys():
 		community_summary = dict()
 		community_summary['count'] = len(community_data[community_name])
@@ -69,7 +65,8 @@ def populate():
 		d3_list = list()
 		for complaint in community_summary.keys():
 			if complaint != 'count':
-				d3_list.append({'complaint':complaint, 'count':community_summary[complaint]['count']})
+				d3_list.append({'complaint':complaint, 
+								'count':community_summary[complaint]['count']})
 
 		overall_summary[community_name] = community_summary
 		overall_summary[community_name]['d3'] = d3_list
@@ -78,13 +75,12 @@ def populate():
 	for community_name in overall_summary.keys():
 		try:
 			threeoneone_database_entry = ThreeOneOneData(
-											name = community_name,
-											count = overall_summary[community_name]['count'],
-											json_data = json.dumps(overall_summary[community_name]['d3']))
+														name = community_name,
+														count = overall_summary[community_name]['count'],
+														json_data = json.dumps(overall_summary[community_name]['d3']))
 			threeoneone_database_entry.save()
+
 			community_name_entry = CommunityName(name = community_name)
 			community_name_entry.save()
 		except Exception:
 			logger.error('Caught some Exception adding data to the database')
-
-

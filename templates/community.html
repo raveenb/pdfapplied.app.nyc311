@@ -1,22 +1,29 @@
 <html>
 <head>
-	<title>{{community.name}}</title>	
+	<title>
+		{{community.name}}
+	</title>	
 </head>
 <body>
 	Community = {{community.name}}<br>
 	Count = {{community.count}}<br>
-	<textarea name="textarea" rows="10" cols="50">{{community.json_data}}</textarea>
-		<form 
-			action = "{% url home %}"
-			method = "post">
-			<input 
-				type = "submit"
-				value = "submit" 
-				name = "GetDetails">
-			<input 
-				type = "submit"
-				value = "cancel" 
-				name = "GetDetails">				
-		</form>
+	<textarea 
+		name="textarea" 
+		rows="10" 
+		cols="50">
+		{{community.json_data}}
+	</textarea>
+	<form 
+		action = "{% url home %}"
+		method = "post">
+		<input 
+			type = "submit"
+			value = "submit" 
+			name = "GetDetails">
+		<input 
+			type = "submit"
+			value = "cancel" 
+			name = "GetDetails">				
+	</form>
 </body>
 </html>

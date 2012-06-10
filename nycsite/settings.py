@@ -2,6 +2,10 @@
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+import os
+import django
+DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__)) # calculated paths for django and the site
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__)) # used as starting points for various other paths
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -109,7 +113,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/Users/raveenbeemsingh/dev/pdf_hackathon/app.311.nyc/templates'
+    os.path.join(os.path.dirname(SITE_ROOT), 'templates')
 )
 
 INSTALLED_APPS = (
